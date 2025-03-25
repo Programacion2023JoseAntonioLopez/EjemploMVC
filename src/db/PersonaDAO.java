@@ -9,70 +9,125 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase PersonaDAO que gestiona el acceso a la base de datos para la entidad Persona.
+ * Implementa el patrón Singleton para asegurar una única instancia.
+ */
 public class PersonaDAO {
-    // Objeto de conexión a la base de datos. Recuerda el patrón singleton de DBConnection
-    private Connection connection=DBConnection.getConnection();
 
-    // Consultas SQL para manipular la tabla Persona
+    // Instancia única de PersonaDAO
+    private static PersonaDAO instance;
+    // Conexión a la base de datos
+    private Connection connection;
+
+    //Sentencia SQL para crear la si no existe
+    public static final String CREATE_TABLE_PERSONA = """
+    CREATE TABLE IF NOT EXISTS `Persona`(
+    `id` int not null auto_increment,
+    `dni` VARCHAR(9) NOT NULL,
+    `nombre` VARCHAR(50) NOT NULL,
+    `apellido` VARCHAR(50) NOT NULL,
+    `edad` int NOT NULL,
+                    primary key(`id`),
+                    unique key(`dni`)    
+);
+""";
+    // Consultas SQL predefinidas para operaciones CRUD
     private static final String INSERT_QUERY = "INSERT INTO Persona (dni, nombre, apellido, edad) VALUES (?, ?, ?, ?)";
     private static final String SELECT_ALL_QUERY = "SELECT * FROM Persona";
     private static final String SELECT_BY_DNI_QUERY = "SELECT * FROM Persona WHERE dni = ?";
     private static final String UPDATE_QUERY = "UPDATE Persona SET nombre = ?, apellido = ?, edad = ? WHERE dni = ?";
     private static final String DELETE_QUERY = "DELETE FROM Persona WHERE dni = ?";
+    private static final String TOTAL_PERSONAS_QUERY = "SELECT COUNT(*) FROM Persona";
 
+    /**
+     * Constructor privado para evitar instanciación externa.
+     * Obtiene la conexión a la base de datos desde DBConnection.
+     */
+    private PersonaDAO() {
+        this.connection = DBConnection.getConnection();
+    }
 
+    /**
+     * Método estático para obtener la única instancia de PersonaDAO.
+     * @return instancia única de PersonaDAO.
+     */
+    public static synchronized PersonaDAO getInstance() {
+        if (instance == null) {
+            instance = new PersonaDAO();
+        }
+        return instance;
+    }
 
-    // Método para insertar una nueva persona en la base de datos
+    /**
+     * Inserta una nueva persona en la base de datos.
+     * @param persona Objeto Persona a insertar.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
     public void insertPersona(Persona persona) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(INSERT_QUERY)) {
             statement.setString(1, persona.getDni());
             statement.setString(2, persona.getNombre());
             statement.setString(3, persona.getApellido());
             statement.setInt(4, persona.getEdad());
-
             statement.executeUpdate();
         }
     }
 
-    // Método para obtener todas las personas de la base de datos
+    /**
+     * Obtiene todas las personas almacenadas en la base de datos.
+     * @return Lista de objetos Persona.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
     public List<Persona> getAllPersonas() throws SQLException {
         List<Persona> personas = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(SELECT_ALL_QUERY)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                Persona persona = resulSetToPersona(resultSet);
-                personas.add(persona);
+                personas.add(resultSetToPersona(resultSet));
             }
         }
         return personas;
     }
 
-    // Método para obtener una persona por su DNI
+    /**
+     * Obtiene una persona a partir de su DNI.
+     * @param dni Identificador único de la persona.
+     * @return Objeto Persona si se encuentra, null si no.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
     public Persona getPersonaByDni(String dni) throws SQLException {
         Persona persona = null;
         try (PreparedStatement statement = connection.prepareStatement(SELECT_BY_DNI_QUERY)) {
             statement.setString(1, dni);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                persona = resulSetToPersona(resultSet);
+                persona = resultSetToPersona(resultSet);
             }
         }
         return persona;
     }
 
-    // Método para actualizar los datos de una persona en la base de datos
+    /**
+     * Actualiza los datos de una persona en la base de datos.
+     * @param persona Objeto Persona con los datos actualizados.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
     public void updatePersona(Persona persona) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_QUERY)) {
             statement.setString(1, persona.getNombre());
             statement.setString(2, persona.getApellido());
             statement.setInt(3, persona.getEdad());
             statement.setString(4, persona.getDni());
-
             statement.executeUpdate();
         }
     }
 
-    // Método para eliminar una persona de la base de datos por su DNI
+    /**
+     * Elimina una persona de la base de datos por su DNI.
+     * @param dni Identificador único de la persona a eliminar.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
     public void deletePersonaByDni(String dni) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(DELETE_QUERY)) {
             statement.setString(1, dni);
@@ -80,14 +135,34 @@ public class PersonaDAO {
         }
     }
 
-    // Método auxiliar para mapear un ResultSet a un objeto Persona
-    private Persona resulSetToPersona(ResultSet resultSet) throws SQLException {
-        Persona persona = new Persona(
+    /**
+     * Convierte un ResultSet en un objeto Persona.
+     * @param resultSet Resultado de la consulta SQL.
+     * @return Objeto Persona con los datos del ResultSet.
+     * @throws SQLException Si ocurre un error en la conversión.
+     */
+    private Persona resultSetToPersona(ResultSet resultSet) throws SQLException {
+        return new Persona(
+                resultSet.getInt("id"),
                 resultSet.getString("dni"),
                 resultSet.getString("nombre"),
                 resultSet.getString("apellido"),
                 resultSet.getInt("edad"));
-        return persona;
+    }
+
+    /**
+     * Obtiene el total de personas almacenadas en la base de datos.
+     * @return Número total de personas.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
+    public int totalPersonas() throws SQLException {
+        int total = 0;
+        try (PreparedStatement statement = connection.prepareStatement(TOTAL_PERSONAS_QUERY)) {
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                total = resultSet.getInt(1);
+            }
+        }
+        return total;
     }
 }
-

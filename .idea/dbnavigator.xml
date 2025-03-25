@@ -9,6 +9,13 @@
     <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
+  <component name="DBNavigator.Project.DatabaseAssistantManager">
+    <assistants>
+      <assistant-state connection-id="b74a384b-cd58-48d0-a7a0-4d083d759340" default-profile-name="" selected-profile-name="" selected-model-name="" assistant-type="GENERIC" selected-action="SHOW_SQL" availability="UNAVAILABLE" acknowledgement="NONE">
+        <messages />
+      </assistant-state>
+    </assistants>
+  </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
@@ -17,7 +24,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="b74a384b-cd58-48d0-a7a0-4d083d759340">
-      <console name="Connection" type="STANDARD" schema="Persona" session="Main" />
+      <console name="Connection" type="STANDARD" schema="midb" session="Main"><![CDATA[select * from persona;]]></console>
     </connection>
     <connection id="d44a485d-f3cc-4966-9cd3-dcd39fcd926a">
       <console name="Connection 1" type="STANDARD" schema="" session="Main"><![CDATA[create schema if not exists `mi_DB`;
@@ -41,12 +48,15 @@ create table if not exists `Persona`(
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="d44a485d-f3cc-4966-9cd3-dcd39fcd926a" object-ref="consoles/Connection 1" />
+      <object connection-id="b74a384b-cd58-48d0-a7a0-4d083d759340" object-ref="consoles/Connection" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="b74a384b-cd58-48d0-a7a0-4d083d759340" />
     <connection id="d44a485d-f3cc-4966-9cd3-dcd39fcd926a" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="b74a384b-cd58-48d0-a7a0-4d083d759340" dataset="midb.Persona" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -68,7 +78,7 @@ create table if not exists `Persona`(
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="5.7" />
+          <database-version value="8.0" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
@@ -80,7 +90,10 @@ create table if not exists `Persona`(
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="root" />
-          <deprecated-pwd value="cm9vdDEyMzQ1Ng==" />
+          <token-type value="" />
+          <token-config-file value="" />
+          <token-profile value="" />
+          <session-user value="root@192.168.18.7" />
         </database>
         <properties>
           <auto-commit value="false" />
@@ -90,10 +103,8 @@ create table if not exists `Persona`(
           <proxy-host value="" />
           <proxy-port value="22" />
           <proxy-user value="" />
-          <deprecated-proxy-pwd value="" />
           <auth-type value="PASSWORD" />
           <key-file value="" />
-          <key-passphrase value="" />
         </ssh-settings>
         <ssl-settings>
           <active value="false" />
@@ -150,9 +161,15 @@ create table if not exists `Persona`(
             <object-type name="TYPE" enabled="true" />
             <object-type name="TYPE_ATTRIBUTE" enabled="true" />
             <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="JAVA_CLASS" enabled="true" />
+            <object-type name="JAVA_INNER_CLASS" enabled="true" />
+            <object-type name="JAVA_FIELD" enabled="true" />
+            <object-type name="JAVA_METHOD" enabled="true" />
             <object-type name="DIMENSION" enabled="true" />
             <object-type name="CLUSTER" enabled="true" />
             <object-type name="DBLINK" enabled="true" />
+            <object-type name="CREDENTIAL" enabled="true" />
+            <object-type name="AI_PROFILE" enabled="true" />
           </object-type-filter>
         </object-filters>
       </connection>
@@ -174,7 +191,10 @@ create table if not exists `Persona`(
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="root" />
-          <deprecated-pwd value="cm9vdDEyMzQ1Ng==" />
+          <token-type value="" />
+          <token-config-file value="" />
+          <token-profile value="" />
+          <session-user value="" />
         </database>
         <properties>
           <auto-commit value="false" />
@@ -184,10 +204,8 @@ create table if not exists `Persona`(
           <proxy-host value="" />
           <proxy-port value="22" />
           <proxy-user value="" />
-          <deprecated-proxy-pwd value="" />
           <auth-type value="PASSWORD" />
           <key-file value="" />
-          <key-passphrase value="" />
         </ssh-settings>
         <ssl-settings>
           <active value="false" />
@@ -244,9 +262,15 @@ create table if not exists `Persona`(
             <object-type name="TYPE" enabled="true" />
             <object-type name="TYPE_ATTRIBUTE" enabled="true" />
             <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="JAVA_CLASS" enabled="true" />
+            <object-type name="JAVA_INNER_CLASS" enabled="true" />
+            <object-type name="JAVA_FIELD" enabled="true" />
+            <object-type name="JAVA_METHOD" enabled="true" />
             <object-type name="DIMENSION" enabled="true" />
             <object-type name="CLUSTER" enabled="true" />
             <object-type name="DBLINK" enabled="true" />
+            <object-type name="CREDENTIAL" enabled="true" />
+            <object-type name="AI_PROFILE" enabled="true" />
           </object-type-filter>
         </object-filters>
       </connection>
@@ -256,6 +280,7 @@ create table if not exists `Persona`(
         <display-mode value="TABBED" />
         <navigation-history-size value="100" />
         <show-object-details value="false" />
+        <enable-sticky-paths value="true" />
       </general>
       <filters>
         <object-type-filter>
@@ -281,9 +306,15 @@ create table if not exists `Persona`(
           <object-type name="TYPE" enabled="true" />
           <object-type name="TYPE_ATTRIBUTE" enabled="true" />
           <object-type name="ARGUMENT" enabled="true" />
+          <object-type name="JAVA_CLASS" enabled="true" />
+          <object-type name="JAVA_INNER_CLASS" enabled="true" />
+          <object-type name="JAVA_FIELD" enabled="true" />
+          <object-type name="JAVA_METHOD" enabled="true" />
           <object-type name="DIMENSION" enabled="true" />
           <object-type name="CLUSTER" enabled="true" />
           <object-type name="DBLINK" enabled="true" />
+          <object-type name="CREDENTIAL" enabled="true" />
+          <object-type name="AI_PROFILE" enabled="true" />
         </object-type-filter>
       </filters>
       <sorting>
@@ -320,9 +351,15 @@ create table if not exists `Persona`(
           <object-type name="FUNCTION" enabled="true" />
           <object-type name="PACKAGE" enabled="true" />
           <object-type name="TYPE" enabled="true" />
+          <object-type name="JAVA CLASS" enabled="true" />
+          <object-type name="INNER CLASS" enabled="true" />
+          <object-type name="JAVA FIELD" enabled="true" />
+          <object-type name="JAVA METHOD" enabled="true" />
+          <object-type name="JAVA PARAMETER" enabled="true" />
           <object-type name="DIMENSION" enabled="false" />
           <object-type name="CLUSTER" enabled="false" />
           <object-type name="DBLINK" enabled="true" />
+          <object-type name="CREDENTIAL" enabled="false" />
         </lookup-objects>
         <force-database-load value="false" />
         <prompt-connection-selection value="true" />
@@ -382,7 +419,6 @@ create table if not exists `Persona`(
           <content-type name="JSON" enabled="true" />
           <content-type name="JSON5" enabled="true" />
           <content-type name="Groovy" enabled="true" />
-          <content-type name="AIDL" enabled="true" />
           <content-type name="YAML" enabled="true" />
           <content-type name="Manifest" enabled="true" />
         </content-types>
@@ -613,6 +649,7 @@ create table if not exists `Persona`(
         <mapping file-type-id="TYPE" extensions="tpe" />
         <mapping file-type-id="TYPE_SPEC" extensions="tps" />
         <mapping file-type-id="TYPE_BODY" extensions="tpb" />
+        <mapping file-type-id="JAVA_SOURCE" extensions="sql" />
       </extensions>
       <general>
         <lookup-ddl-files value="true" />
@@ -622,6 +659,11 @@ create table if not exists `Persona`(
         <make-scripts-rerunnable value="true" />
       </general>
     </ddl-file-settings>
+    <assistant-settings>
+      <credential-settings>
+        <credentials />
+      </credential-settings>
+    </assistant-settings>
     <general-settings>
       <regional-settings>
         <date-format value="MEDIUM" />

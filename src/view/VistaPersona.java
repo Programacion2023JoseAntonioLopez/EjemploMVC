@@ -38,6 +38,8 @@ public class VistaPersona {
     }
 
     public Persona obtenerDatosActualizados() {
+        System.out.println("Introduce el DNI:");
+        String dni = scanner.nextLine();
         System.out.println("Introduce el nuevo nombre:");
         String nombre = scanner.nextLine();
         System.out.println("Introduce el nuevo apellido:");
@@ -45,7 +47,7 @@ public class VistaPersona {
         System.out.println("Introduce la nueva edad:");
         int edad = Integer.parseInt(scanner.nextLine());
 
-        return new Persona("", nombre, apellido, edad); // DNI no es necesario para actualizar
+        return new Persona(dni, nombre, apellido, edad);
     }
 
     public void mostrarMensaje(String mensaje) {

@@ -17,7 +17,7 @@ public class ControllerPersona {
     public ControllerPersona() {
         // Crear conexión a la base de datos
 
-            personaDAO = new PersonaDAO();
+            personaDAO = PersonaDAO.getInstance();
             vistaPersona = new VistaPersona();
     }
 
