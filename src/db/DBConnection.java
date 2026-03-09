@@ -9,13 +9,13 @@ import java.sql.Statement;
 
 public class DBConnection {
     // URL de conexión a la base de datos MySQL
-    private static final String URL = "jdbc:mysql://192.168.18.50:3366/mi_DB2";
+    private static final String URL = "jdbc:mysql://192.168.18.173:3366/mi_DB";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "root123456";
+    private static final String PASSWORD = "123456";
 
     private static Connection connection;
 
-    // Constructor privado para evitar instancias directas
+    // Constructor privado para evitar instancias directas. Patrón Singleton
     private DBConnection() {}
 
     // Método estático para obtener la instancia única de la conexión

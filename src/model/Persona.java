@@ -69,13 +69,12 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" +
-                "id=" + id +
-                ", dni='" + dni + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                '}';
+        return String.format("%-5d %-12s %-15s %-15s %-5d",
+                id,
+                dni,
+                nombre,
+                apellido,
+                edad);
     }
 }
 
