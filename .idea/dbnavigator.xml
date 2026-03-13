@@ -11,10 +11,13 @@
   </component>
   <component name="DBNavigator.Project.DatabaseAssistantManager">
     <assistants>
-      <assistant-state connection-id="b74a384b-cd58-48d0-a7a0-4d083d759340" default-profile-name="" selected-profile-name="" selected-model-name="" assistant-type="GENERIC" selected-action="SHOW_SQL" availability="UNAVAILABLE" acknowledgement="NONE">
-        <messages />
+      <assistant-state connection-id="b74a384b-cd58-48d0-a7a0-4d083d759340" assistant-type="SELECT_AI" default-profile-name="" selected-chat-id="" availability="UNAVAILABLE" acknowledgement="NONE" selected="true">
+        <tools />
       </assistant-state>
     </assistants>
+    <selection-state>
+      <model-selection />
+    </selection-state>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
@@ -47,9 +50,7 @@ create table if not exists `Persona`(
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="b74a384b-cd58-48d0-a7a0-4d083d759340" object-ref="consoles/Connection" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="b74a384b-cd58-48d0-a7a0-4d083d759340" />
@@ -72,7 +73,7 @@ create table if not exists `Persona`(
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="b74a384b-cd58-48d0-a7a0-4d083d759340" active="true" signed="true">
+      <connection source-id="" id="b74a384b-cd58-48d0-a7a0-4d083d759340" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -88,11 +89,20 @@ create table if not exists `Persona`(
           <database value="mysql" />
           <tns-folder value="" />
           <tns-profile value="" />
+          <server-type value="" />
+          <protocol value="" />
+          <url-parameters />
           <type value="USER_PASSWORD" />
           <user value="root" />
           <token-type value="" />
           <token-config-file value="" />
           <token-profile value="" />
+          <adb-compartment-ocid value="" />
+          <adb-database-ocid value="" />
+          <azure-token-database-id-uri value="" />
+          <azure-token-tenant-id value="" />
+          <azure-token-client-id value="" />
+          <azure-token-client-certificate-file value="" />
           <session-user value="root@192.168.18.7" />
         </database>
         <properties>
@@ -130,11 +140,20 @@ create table if not exists `Persona`(
         </details>
         <debugger>
           <compile-dependencies value="true" />
-          <tcp-driver-tunneling value="false" />
           <tcp-host-address value="" />
           <tcp-port-from value="4000" />
           <tcp-port-to value="4999" />
+          <jdwp-tunnel-type value="NONE" />
           <debugger-type value="ASK" />
+          <reverse-ssh-tunnel>
+            <host value="" />
+            <port value="22" />
+            <bind-host value="127.0.0.1" />
+            <bind-port value="0" />
+            <auth-type value="PASSWORD" />
+            <user value="" />
+            <key-file value="" />
+          </reverse-ssh-tunnel>
         </debugger>
         <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
           <object-filters />
@@ -146,6 +165,7 @@ create table if not exists `Persona`(
             <object-type name="CHARSET" enabled="true" />
             <object-type name="TABLE" enabled="true" />
             <object-type name="VIEW" enabled="true" />
+            <object-type name="JSON_VIEW" enabled="true" />
             <object-type name="MATERIALIZED_VIEW" enabled="true" />
             <object-type name="NESTED_TABLE" enabled="true" />
             <object-type name="COLUMN" enabled="true" />
@@ -162,18 +182,19 @@ create table if not exists `Persona`(
             <object-type name="TYPE_ATTRIBUTE" enabled="true" />
             <object-type name="ARGUMENT" enabled="true" />
             <object-type name="JAVA_CLASS" enabled="true" />
-            <object-type name="JAVA_INNER_CLASS" enabled="true" />
             <object-type name="JAVA_FIELD" enabled="true" />
             <object-type name="JAVA_METHOD" enabled="true" />
+            <object-type name="JAVA_RESOURCE" enabled="true" />
             <object-type name="DIMENSION" enabled="true" />
             <object-type name="CLUSTER" enabled="true" />
             <object-type name="DBLINK" enabled="true" />
             <object-type name="CREDENTIAL" enabled="true" />
             <object-type name="AI_PROFILE" enabled="true" />
+            <object-type name="AI_MODEL" enabled="true" />
           </object-type-filter>
         </object-filters>
       </connection>
-      <connection id="d44a485d-f3cc-4966-9cd3-dcd39fcd926a" active="true" signed="true">
+      <connection source-id="" id="d44a485d-f3cc-4966-9cd3-dcd39fcd926a" active="true" signed="true">
         <database>
           <name value="Connection 1" />
           <description value="" />
@@ -189,11 +210,20 @@ create table if not exists `Persona`(
           <database value="" />
           <tns-folder value="" />
           <tns-profile value="" />
+          <server-type value="" />
+          <protocol value="" />
+          <url-parameters />
           <type value="USER_PASSWORD" />
           <user value="root" />
           <token-type value="" />
           <token-config-file value="" />
           <token-profile value="" />
+          <adb-compartment-ocid value="" />
+          <adb-database-ocid value="" />
+          <azure-token-database-id-uri value="" />
+          <azure-token-tenant-id value="" />
+          <azure-token-client-id value="" />
+          <azure-token-client-certificate-file value="" />
           <session-user value="" />
         </database>
         <properties>
@@ -231,11 +261,20 @@ create table if not exists `Persona`(
         </details>
         <debugger>
           <compile-dependencies value="true" />
-          <tcp-driver-tunneling value="false" />
           <tcp-host-address value="" />
           <tcp-port-from value="4000" />
           <tcp-port-to value="4999" />
+          <jdwp-tunnel-type value="NONE" />
           <debugger-type value="ASK" />
+          <reverse-ssh-tunnel>
+            <host value="" />
+            <port value="22" />
+            <bind-host value="127.0.0.1" />
+            <bind-port value="0" />
+            <auth-type value="PASSWORD" />
+            <user value="" />
+            <key-file value="" />
+          </reverse-ssh-tunnel>
         </debugger>
         <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
           <object-filters />
@@ -247,6 +286,7 @@ create table if not exists `Persona`(
             <object-type name="CHARSET" enabled="true" />
             <object-type name="TABLE" enabled="true" />
             <object-type name="VIEW" enabled="true" />
+            <object-type name="JSON_VIEW" enabled="true" />
             <object-type name="MATERIALIZED_VIEW" enabled="true" />
             <object-type name="NESTED_TABLE" enabled="true" />
             <object-type name="COLUMN" enabled="true" />
@@ -263,14 +303,15 @@ create table if not exists `Persona`(
             <object-type name="TYPE_ATTRIBUTE" enabled="true" />
             <object-type name="ARGUMENT" enabled="true" />
             <object-type name="JAVA_CLASS" enabled="true" />
-            <object-type name="JAVA_INNER_CLASS" enabled="true" />
             <object-type name="JAVA_FIELD" enabled="true" />
             <object-type name="JAVA_METHOD" enabled="true" />
+            <object-type name="JAVA_RESOURCE" enabled="true" />
             <object-type name="DIMENSION" enabled="true" />
             <object-type name="CLUSTER" enabled="true" />
             <object-type name="DBLINK" enabled="true" />
             <object-type name="CREDENTIAL" enabled="true" />
             <object-type name="AI_PROFILE" enabled="true" />
+            <object-type name="AI_MODEL" enabled="true" />
           </object-type-filter>
         </object-filters>
       </connection>
@@ -281,6 +322,7 @@ create table if not exists `Persona`(
         <navigation-history-size value="100" />
         <show-object-details value="false" />
         <enable-sticky-paths value="true" />
+        <enable-quick-filters value="false" />
       </general>
       <filters>
         <object-type-filter>
@@ -291,6 +333,7 @@ create table if not exists `Persona`(
           <object-type name="CHARSET" enabled="true" />
           <object-type name="TABLE" enabled="true" />
           <object-type name="VIEW" enabled="true" />
+          <object-type name="JSON_VIEW" enabled="true" />
           <object-type name="MATERIALIZED_VIEW" enabled="true" />
           <object-type name="NESTED_TABLE" enabled="true" />
           <object-type name="COLUMN" enabled="true" />
@@ -307,14 +350,15 @@ create table if not exists `Persona`(
           <object-type name="TYPE_ATTRIBUTE" enabled="true" />
           <object-type name="ARGUMENT" enabled="true" />
           <object-type name="JAVA_CLASS" enabled="true" />
-          <object-type name="JAVA_INNER_CLASS" enabled="true" />
           <object-type name="JAVA_FIELD" enabled="true" />
           <object-type name="JAVA_METHOD" enabled="true" />
+          <object-type name="JAVA_RESOURCE" enabled="true" />
           <object-type name="DIMENSION" enabled="true" />
           <object-type name="CLUSTER" enabled="true" />
           <object-type name="DBLINK" enabled="true" />
           <object-type name="CREDENTIAL" enabled="true" />
           <object-type name="AI_PROFILE" enabled="true" />
+          <object-type name="AI_MODEL" enabled="true" />
         </object-type-filter>
       </filters>
       <sorting>
@@ -340,6 +384,7 @@ create table if not exists `Persona`(
           <object-type name="CHARSET" enabled="false" />
           <object-type name="TABLE" enabled="true" />
           <object-type name="VIEW" enabled="true" />
+          <object-type name="JSON VIEW" enabled="true" />
           <object-type name="MATERIALIZED VIEW" enabled="true" />
           <object-type name="INDEX" enabled="true" />
           <object-type name="CONSTRAINT" enabled="true" />
@@ -356,6 +401,7 @@ create table if not exists `Persona`(
           <object-type name="JAVA FIELD" enabled="true" />
           <object-type name="JAVA METHOD" enabled="true" />
           <object-type name="JAVA PARAMETER" enabled="true" />
+          <object-type name="JAVA RESOURCE" enabled="true" />
           <object-type name="DIMENSION" enabled="false" />
           <object-type name="CLUSTER" enabled="false" />
           <object-type name="DBLINK" enabled="true" />
@@ -455,6 +501,7 @@ create table if not exists `Persona`(
           <user-schema>
             <filter-element type="OBJECT" id="table" selected="true" />
             <filter-element type="OBJECT" id="view" selected="true" />
+            <filter-element type="OBJECT" id="json view" selected="true" />
             <filter-element type="OBJECT" id="materialized view" selected="true" />
             <filter-element type="OBJECT" id="index" selected="true" />
             <filter-element type="OBJECT" id="constraint" selected="true" />
@@ -472,6 +519,7 @@ create table if not exists `Persona`(
           <public-schema>
             <filter-element type="OBJECT" id="table" selected="false" />
             <filter-element type="OBJECT" id="view" selected="false" />
+            <filter-element type="OBJECT" id="json view" selected="false" />
             <filter-element type="OBJECT" id="materialized view" selected="false" />
             <filter-element type="OBJECT" id="index" selected="false" />
             <filter-element type="OBJECT" id="constraint" selected="false" />
@@ -489,6 +537,7 @@ create table if not exists `Persona`(
           <any-schema>
             <filter-element type="OBJECT" id="table" selected="true" />
             <filter-element type="OBJECT" id="view" selected="true" />
+            <filter-element type="OBJECT" id="json view" selected="true" />
             <filter-element type="OBJECT" id="materialized view" selected="true" />
             <filter-element type="OBJECT" id="index" selected="true" />
             <filter-element type="OBJECT" id="constraint" selected="true" />
@@ -517,6 +566,7 @@ create table if not exists `Persona`(
           <user-schema>
             <filter-element type="OBJECT" id="table" selected="true" />
             <filter-element type="OBJECT" id="view" selected="true" />
+            <filter-element type="OBJECT" id="json view" selected="true" />
             <filter-element type="OBJECT" id="materialized view" selected="true" />
             <filter-element type="OBJECT" id="index" selected="true" />
             <filter-element type="OBJECT" id="constraint" selected="true" />
@@ -534,6 +584,7 @@ create table if not exists `Persona`(
           <public-schema>
             <filter-element type="OBJECT" id="table" selected="true" />
             <filter-element type="OBJECT" id="view" selected="true" />
+            <filter-element type="OBJECT" id="json view" selected="true" />
             <filter-element type="OBJECT" id="materialized view" selected="true" />
             <filter-element type="OBJECT" id="index" selected="true" />
             <filter-element type="OBJECT" id="constraint" selected="true" />
@@ -551,6 +602,7 @@ create table if not exists `Persona`(
           <any-schema>
             <filter-element type="OBJECT" id="table" selected="true" />
             <filter-element type="OBJECT" id="view" selected="true" />
+            <filter-element type="OBJECT" id="json view" selected="true" />
             <filter-element type="OBJECT" id="materialized view" selected="true" />
             <filter-element type="OBJECT" id="index" selected="true" />
             <filter-element type="OBJECT" id="constraint" selected="true" />
@@ -568,6 +620,7 @@ create table if not exists `Persona`(
         </extended-filter>
       </filters>
       <sorting enabled="true">
+        <sorting-element type="OBJECT" id="json view" />
         <sorting-element type="RESERVED_WORD" id="keyword" />
         <sorting-element type="RESERVED_WORD" id="datatype" />
         <sorting-element type="OBJECT" id="column" />
@@ -608,6 +661,11 @@ create table if not exists `Persona`(
         <command-line-interfaces />
         <execution-timeout value="300" />
       </script-execution>
+      <method-execution>
+        <execution-timeout value="30" />
+        <debug-execution-timeout value="600" />
+        <parameter-history-size value="10" />
+      </method-execution>
       <method-execution>
         <execution-timeout value="30" />
         <debug-execution-timeout value="600" />
@@ -663,6 +721,9 @@ create table if not exists `Persona`(
       <credential-settings>
         <credentials />
       </credential-settings>
+      <profile-settings>
+        <profiles />
+      </profile-settings>
     </assistant-settings>
     <general-settings>
       <regional-settings>
